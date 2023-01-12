@@ -21,6 +21,7 @@
         android:text="আসসালামুয়ালাইকুম"
         android:textColor="#040404"
         android:textSize="20sp" />
+<!--    for testing-->
 
     <RelativeLayout
         android:layout_width="match_parent"
