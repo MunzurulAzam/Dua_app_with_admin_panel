@@ -1,12 +1,16 @@
 package com.example.islamic_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -14,7 +18,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public CardView card1;
+
 
 //    RecyclerView recyclerView;
 //    LinearLayoutManager layoutManager;
@@ -36,33 +43,28 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewDate = findViewById(R.id.textView4);
         textViewDate.setText(currentDate);
 
-//        initData();
-//        initRecylerview();
+//        add Tasbeeh activity
+
+        card1 = findViewById(R.id.tasbeehCard);
+
+        card1.setOnClickListener(this);
 
 
     }
 
-//    private void initData() {
-//        userList = new ArrayList<>();
-//
-//        userList.add(new ModelClass( "azam"));
-//        userList.add(new ModelClass( "rakib"));
-//        userList.add(new ModelClass( "emon"));
-//        userList.add(new ModelClass( "razib"));
-//        userList.add(new ModelClass("rahim"));
-//        userList.add(new ModelClass( "karim"));
-//        userList.add(new ModelClass( "samsul"));
-//        userList.add(new ModelClass( "doyan"));
-//    }
-//
-//    private void initRecylerview() {
-//
-//        recyclerView=findViewById(R.id.recyclerview);
-//        layoutManager=new LinearLayoutManager(this);
-//        layoutManager.setOrientation(RecyclerView.VERTICAL);
-//        recyclerView.setLayoutManager(layoutManager);
-//        adapter=new Adapter(userList);
-//        recyclerView.setAdapter(adapter);
-//        adapter.notifyDataSetChanged();
-//    }
+
+    @Override
+    public void onClick(View v) {
+
+        Intent i;
+
+        switch (v.getId()){
+
+            case R.id.tasbeehCard :
+                i = new Intent(this,TasbeehApp.class);
+                startActivity(i);
+                break;
+        }
+
+    }
 }
